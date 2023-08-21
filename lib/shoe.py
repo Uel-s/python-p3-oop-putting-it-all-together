@@ -1,16 +1,22 @@
 #!/usr/bin/env python3
 
 class Shoe:
-    def _init_(self, brand, size):
-        self.brand = brand
+    
+    def __init__(self, brand, size):
         self.size = size
-        self.condition = "New"  # Initialize condition as "New"
+        self.brand = brand
+
+    @property
+    def size(self):
+        return self._size
+    
+    @size.setter
+    def size(self, size):
+        if isinstance(size, int):
+            self._size = size
+        else:
+            print("size must be an integer")
 
     def cobble(self):
-        # Repair the shoe
         self.condition = "New"
         print("Your shoe is as good as new!")
-
-if _name_ == "_main_":
-    # You can add some code here to test the Shoe class directly if needed
-    pass
